@@ -1,0 +1,48 @@
+package com.jaimin.portfolio_backend.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import com.jaimin.portfolio_backend.security.JwtAuthenticationFilter;
+
+import lombok.RequiredArgsConstructor;
+
+@Configuration
+@RequiredArgsConstructor
+public class SecurityConfig {
+
+    private final JwtAuthenticationFilter jwtAuthenticationFilter;
+
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http)
+            throws Exception {
+
+        http
+                .csrf(csrf -> csrf.disable())
+                .cors(Customizer.withDefaults())
+                .authorizeHttpRequests(auth -> auth
+                        // Public authentication endpoints
+                        .requestMatchers("/api/auth/**").permitAll()
+                        // Public static files endpoint
+                        .requestMatchers("/uploads/**").permitAll()
+                        // Public read-only endpoints for the portfolio views
+                        .requestMatchers(HttpMethod.GET, "/api/profile/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/projects/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/skills/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/experiences/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/educations/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/certificates/**").permitAll()
+                        .requestMatchers("/api/public/**").permitAll()
+                        // Any other requests (CRUD writing, dashboard stats, AI analysis) must be authenticated
+                        .anyRequest().authenticated()
+                )
+                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+
+        return http.build();
+    }
+}
