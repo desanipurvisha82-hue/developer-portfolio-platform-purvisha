@@ -28,6 +28,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         // Public authentication endpoints
                         .requestMatchers("/api/auth/**").permitAll()
+                        // Public error endpoint (allows returning actual validation/exception messages instead of masking as 403)
+                        .requestMatchers("/error").permitAll()
                         // Public static files endpoint
                         .requestMatchers("/uploads/**").permitAll()
                         // Public read-only endpoints for the portfolio views
