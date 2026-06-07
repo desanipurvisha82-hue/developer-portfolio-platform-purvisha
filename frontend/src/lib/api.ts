@@ -1,8 +1,10 @@
 import axios from "axios";
 
+// Configure api client with dynamic baseURL from Vercel env variables
 const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080/api",
 });
+
 
 
 api.interceptors.request.use((config) => {
