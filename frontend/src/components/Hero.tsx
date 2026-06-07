@@ -24,8 +24,11 @@ export default function Hero({ profile }: HeroProps) {
       flex
       items-center
       justify-center
-      min-h-[85vh]
-      md:min-h-screen
+      min-h-screen
+      pt-28
+      pb-16
+      md:pt-36
+      md:pb-24
       text-white
       overflow-hidden
       "

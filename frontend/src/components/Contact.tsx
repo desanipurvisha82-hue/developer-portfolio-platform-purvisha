@@ -169,13 +169,13 @@ export default function Contact({ profile }: ContactProps) {
                 I'm open to new developer roles, freelance opportunities, and technology collaborations. Drop me a line, and let's build something awesome together!
               </p>
 
-              <div className="flex items-center gap-4">
-                <div className="p-4 rounded-2xl bg-cyan-500/10 border border-cyan-500/20">
+              <div className="flex items-center gap-4 max-w-full overflow-hidden">
+                <div className="p-4 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 shrink-0">
                   <Mail className="text-cyan-400" size={24} />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="text-slate-450 text-xs uppercase font-bold tracking-wider">Email</p>
-                  <a href={`mailto:${profile.email}`} className="text-white hover:text-cyan-400 transition-colors font-semibold text-lg">
+                  <a href={`mailto:${profile.email}`} className="text-white hover:text-cyan-400 transition-colors font-semibold text-base md:text-lg block break-all">
                     {profile.email}
                   </a>
                 </div>
@@ -193,7 +193,7 @@ export default function Contact({ profile }: ContactProps) {
             </div>
 
             {/* Social Profile Links */}
-            <div className="grid grid-cols-2 gap-4 pt-6 border-t border-slate-800">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6 border-t border-slate-800">
               {profile.githubUrl && (
                 <a
                   href={profile.githubUrl}
