@@ -1,9 +1,26 @@
 import axios from "axios";
 
-// Configure api client with dynamic baseURL supporting both common env naming schemes
+// Configure api client with dynamic baseURL and automatic '/api' suffix enforcement
+const getBaseURL = () => {
+  let url = process.env.NEXT_PUBLIC_BACKEND_URL || process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080/api";
+  
+  // Strip trailing slash if present
+  if (url.endsWith("/")) {
+    url = url.slice(0, -1);
+  }
+  
+  // Force /api suffix if not already present
+  if (!url.endsWith("/api")) {
+    url = url + "/api";
+  }
+  
+  return url;
+};
+
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_BACKEND_URL || process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080/api",
+  baseURL: getBaseURL(),
 });
+
 
 
 
