@@ -23,27 +23,7 @@ public class DatabaseConfig {
     @Bean
     @Primary
     public DataSource dataSource() {
-        System.out.println("====== SYSTEM ENVIRONMENT VARIABLES DUMP ======");
-        try {
-            System.getenv().forEach((k, v) -> {
-                String maskedValue = v;
-                String upperKey = k.toUpperCase();
-                if (upperKey.contains("PASS") || upperKey.contains("SECRET") || upperKey.contains("URL") || upperKey.contains("KEY") || upperKey.contains("TOKEN")) {
-                    maskedValue = "[MASKED] (Length: " + (v != null ? v.length() : 0) + ")";
-                }
-                System.out.println(k + " = " + maskedValue);
-            });
-        } catch (Exception e) {
-            System.out.println("Failed to dump environment variables: " + e.getMessage());
-        }
-        System.out.println("===============================================");
-
         String databaseUrl = System.getenv("DATABASE_URL");
-        
-        System.out.println("====== DATABASE CONFIGURATION LOGS ======");
-        System.out.println("System.getenv(\"DATABASE_URL\") length: " + (databaseUrl != null ? databaseUrl.length() : "null"));
-        System.out.println("defaultUrl: " + defaultUrl);
-        System.out.println("defaultUsername: " + defaultUsername);
         
         if (databaseUrl != null && !databaseUrl.trim().isEmpty()) {
             databaseUrl = databaseUrl.trim();
@@ -106,11 +86,8 @@ public class DatabaseConfig {
                     host = hostPort;
                 }
                 
-                // If there are query parameters (like sslmode), preserve them
                 String dbUrl = "jdbc:postgresql://" + host + ":" + port + "/" + databaseName;
                 System.out.println("Successfully parsed DATABASE_URL!");
-                System.out.println("Parsed JDBC URL: " + dbUrl);
-                System.out.println("Parsed Username: " + username);
                 
                 HikariConfig hikariConfig = new HikariConfig();
                 hikariConfig.setJdbcUrl(dbUrl);
