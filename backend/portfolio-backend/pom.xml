@@ -128,7 +128,7 @@
 
     <configuration>
         <mainClass>
-            com.jaimin.portfolio_backend.PortfolioBackendApplication
+            com.purvisha.portfolio_backend.PortfolioBackendApplication
         </mainClass>
     </configuration>
 
