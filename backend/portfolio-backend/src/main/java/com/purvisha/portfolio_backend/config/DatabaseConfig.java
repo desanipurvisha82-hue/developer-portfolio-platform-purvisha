@@ -23,6 +23,21 @@ public class DatabaseConfig {
     @Bean
     @Primary
     public DataSource dataSource() {
+        System.out.println("====== SYSTEM ENVIRONMENT VARIABLES DUMP ======");
+        try {
+            System.getenv().forEach((k, v) -> {
+                String maskedValue = v;
+                String upperKey = k.toUpperCase();
+                if (upperKey.contains("PASS") || upperKey.contains("SECRET") || upperKey.contains("URL") || upperKey.contains("KEY") || upperKey.contains("TOKEN")) {
+                    maskedValue = "[MASKED] (Length: " + (v != null ? v.length() : 0) + ")";
+                }
+                System.out.println(k + " = " + maskedValue);
+            });
+        } catch (Exception e) {
+            System.out.println("Failed to dump environment variables: " + e.getMessage());
+        }
+        System.out.println("===============================================");
+
         String databaseUrl = System.getenv("DATABASE_URL");
         
         System.out.println("====== DATABASE CONFIGURATION LOGS ======");
