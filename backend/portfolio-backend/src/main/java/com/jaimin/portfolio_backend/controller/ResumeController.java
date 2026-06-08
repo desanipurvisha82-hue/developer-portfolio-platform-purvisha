@@ -51,7 +51,7 @@ public class ResumeController {
             Path filePath = uploadPath.resolve(fileName);
             Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
 
-            String fileUrl = "http://localhost:8080/uploads/" + fileName;
+            String fileUrl = "/uploads/" + fileName;
 
             // Extract text using PDFBox if it's a PDF, otherwise read as plain text
             String parsedText = "";
