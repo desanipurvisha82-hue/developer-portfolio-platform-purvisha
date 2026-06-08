@@ -44,7 +44,7 @@
                     .stream()
                     .findFirst()
                     .orElse(Profile.builder()
-                            .fullName("Purvisha Patel")
+                            .fullName("purvisha Patel")
                             .headline("Full Stack AI Developer")
                             .about("I build production-ready, AI-powered applications with Next.js and Spring Boot. Specialized in ATS optimization and job search integration.")
                             .email("purvisha@example.com")
@@ -54,7 +54,7 @@
                             .linkedinUrl("https://linkedin.com")
                             .profileImageUrl("")
                             .resumeUrl("")
-                            .resumeText("Name: Purvisha Patel\nRole: Full Stack AI Developer\nSkills: Java, Spring Boot, React, Next.js, Docker, Kubernetes, AWS, TypeScript, REST APIs, PostgreSQL, MySQL\nExperience: 3 years building web apps")
+                            .resumeText("Name: purvisha Patel\nRole: Full Stack AI Developer\nSkills: Java, Spring Boot, React, Next.js, Docker, Kubernetes, AWS, TypeScript, REST APIs, PostgreSQL, MySQL\nExperience: 3 years building web apps")
                             .resumeName("purvisha_resume.pdf")
                             .build());
         }

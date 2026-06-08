@@ -95,7 +95,7 @@ public class PublicAtsController {
             }
         }
 
-        // 2. Fallback check for any Purvisha's custom skills directly inside JD
+        // 2. Fallback check for any purvisha's custom skills directly inside JD
         for (Skill s : skills) {
             String skillNameLower = s.getName().toLowerCase();
             if (jdLower.contains(skillNameLower)) {

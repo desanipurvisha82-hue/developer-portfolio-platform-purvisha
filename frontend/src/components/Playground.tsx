@@ -430,7 +430,7 @@ export default function Playground() {
             <div className="space-y-4">
               <div className="flex justify-between items-center p-3 bg-slate-950/40 border border-slate-850 rounded-xl">
                 <span className="font-bold text-sm text-yellow-400">1st (Arcade Record)</span>
-                <span className="font-mono text-white text-sm">340 pts (Jaimin)</span>
+                <span className="font-mono text-white text-sm">340 pts (purvisha)</span>
               </div>
               
               <div className="flex justify-between items-center p-3 bg-slate-950/40 border border-slate-850 rounded-xl">

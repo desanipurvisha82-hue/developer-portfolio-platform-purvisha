@@ -67,7 +67,7 @@ export default function About({ profile }: AboutProps) {
               <Mail size={18} className="text-slate-500" />
               <div>
                 <span className="text-slate-550 text-xs block uppercase font-bold">Email</span>
-                <span className="text-slate-300 font-medium">{profile.email || "jaimin@example.com"}</span>
+                <span className="text-slate-300 font-medium">{profile.email || "purvisha@example.com"}</span>
               </div>
             </div>
 

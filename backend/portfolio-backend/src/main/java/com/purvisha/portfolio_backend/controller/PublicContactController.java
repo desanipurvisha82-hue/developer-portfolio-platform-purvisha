@@ -73,7 +73,7 @@ public class PublicContactController {
         System.out.println("-------------------------------------------------");
         System.out.println("DISPATCHING REAL HTML EMAILS...");
 
-        String visitorSubject = scheduleMeeting ? "Meeting Scheduled - Purvisha Desani" : "Inquiry Received - Purvisha Desani";
+        String visitorSubject = scheduleMeeting ? "Meeting Scheduled - purvisha Panchal" : "Inquiry Received - purvisha Panchal";
         String visitorHtml = buildVisitorEmailHtml(name, message, scheduleMeeting, date, time, meetLink);
 
         String ownerSubject = scheduleMeeting ? "New Meeting Scheduled - " + name : "New Portfolio Inquiry - " + name;
@@ -83,7 +83,7 @@ public class PublicContactController {
         sendRealEmail(email, visitorSubject, visitorHtml);
 
         // Send to owner (purvisha@gmail.com or customized)
-        String targetOwner = "purvishadesani939@gmail.com";
+        String targetOwner = "purvishapanchal939@gmail.com";
         if (senderEmail != null && !senderEmail.equals("your-email@gmail.com") && senderEmail.contains("@")) {
             targetOwner = senderEmail;
         }
@@ -139,7 +139,7 @@ public class PublicContactController {
             "<html><body style=\"background-color: #090d16; color: #cbd5e1; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; padding: 40px 20px; margin: 0;\">" +
             "  <div style=\"max-width: 600px; margin: 0 auto; background-color: #0b1329; border: 1px solid #1e293b; border-radius: 20px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);\">" +
             "    <h1 style=\"font-size: 24px; font-weight: 800; color: #ffffff; margin-top: 0; background: linear-gradient(to right, #22d3ee, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;\">" +
-            "      Purvisha Desani" +
+            "      purvisha Panchal" +
             "    </h1>" +
             "    <p style=\"font-size: 16px; color: #cbd5e1; line-height: 1.6;\">" +
             "      Hello <b>" + name + "</b>," +
@@ -153,7 +153,7 @@ public class PublicContactController {
             "      <p style=\"font-size: 14px; color: #94a3b8; font-style: italic; margin: 0;\">\"" + message + "\"</p>" +
             "    </div>" +
             "    <p style=\"font-size: 14px; color: #64748b; line-height: 1.6; margin-top: 30px; border-top: 1px solid #1e293b; padding-top: 20px;\">" +
-            "      This is an automated notification from Purvisha Desani's Developer Portfolio Platform." +
+            "      This is an automated notification from purvisha Panchal's Developer Portfolio Platform." +
             "    </p>" +
             "  </div>" +
             "</body></html>";

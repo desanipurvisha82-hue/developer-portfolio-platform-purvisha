@@ -272,7 +272,7 @@ export default function Contact({ profile }: ContactProps) {
               />
               <label htmlFor="scheduleMeeting" className="text-xs font-semibold text-slate-300 cursor-pointer flex items-center gap-1.5">
                 <Video size={14} className="text-cyan-400 animate-pulse" />
-                Schedule a 1-on-1 Google Meet session with Jaimin
+                Schedule a 1-on-1 Google Meet session with purvisha
               </label>
             </div>
 

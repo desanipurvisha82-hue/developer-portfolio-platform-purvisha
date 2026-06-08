@@ -59,7 +59,7 @@ public class AiController {
     @PostMapping("/cover-letter")
     public String generateCoverLetter(@RequestBody CoverLetterRequest request) {
         Profile profile = profileService.getProfile();
-        String name = profile != null ? profile.getFullName() : "Purvisha Patel";
+        String name = profile != null ? profile.getFullName() : "purvisha Patel";
         String headline = profile != null ? profile.getHeadline() : "Full Stack AI Developer";
         String contactEmail = profile != null ? profile.getEmail() : "purvisha@example.com";
         String location = profile != null ? profile.getLocation() : "Mumbai, India";
@@ -107,7 +107,7 @@ public class AiController {
     @PostMapping("/recruiter-email")
     public String generateRecruiterEmail(@RequestBody Map<String, String> request) {
         Profile profile = profileService.getProfile();
-        String name = profile != null ? profile.getFullName() : "Purvisha Patel";
+        String name = profile != null ? profile.getFullName() : "purvisha Patel";
         String headline = profile != null ? profile.getHeadline() : "Full Stack AI Developer";
 
         String company = request.getOrDefault("company", "Company");

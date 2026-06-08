@@ -187,7 +187,7 @@ export default function Hero({ profile }: HeroProps) {
 
           {profile.resumeUrl && (
             <a
-              href={getImageUrl(profile.resumeUrl)}
+              href={profile.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="text-cyan-400 hover:text-cyan-300 font-medium"

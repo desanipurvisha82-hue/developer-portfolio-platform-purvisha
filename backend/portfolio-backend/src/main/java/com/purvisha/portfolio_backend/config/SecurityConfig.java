@@ -26,7 +26,6 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .cors(Customizer.withDefaults())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/", "/error").permitAll()
                         // Public authentication endpoints
                         .requestMatchers("/api/auth/**").permitAll()
                         // Public error endpoint (allows returning actual validation/exception messages instead of masking as 403)
